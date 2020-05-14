@@ -18,14 +18,12 @@ Clone the repository and install the necessary packages mentioned in the 'requir
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
 
-    * To run ETL pipeline that cleans data and stores in database
+    1. The first command is to run the ETL pipeline that cleans data and stores in database.
+	2. The second is to run the ML pipeline that trains classifier and saves the result in pickle file.
 
 ```
 python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
 ```
-
-		* To run ML pipeline that trains classifier and saves
-
 ```
 python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl
 ```
@@ -38,10 +36,16 @@ python run.py
 
 3. Go to http://0.0.0.0:3001/
 
-## License
+## Screenshots
+WebApp's Landing Page
+![Alt text](https://github.com/TrafalgarLaw-24/Disaster-Response-Project/blob/master/Webapp_screenshot1.png "Screenshot1")
+![Alt text](https://github.com/TrafalgarLaw-24/Disaster-Response-Project/blob/master/Webapp_screenshot2.png "Screenshot2")
+![Alt text](https://github.com/TrafalgarLaw-24/Disaster-Response-Project/blob/master/Webapp_screenshot3.png "Screenshot3")
+![Alt text](https://github.com/TrafalgarLaw-24/Disaster-Response-Project/blob/master/Webapp_screenshot4.png "Screenshot4")
 
-This project is licensed under the UniLicense - see the [LICENSE.md](LICENSE.md) file for details
+Enter a word in the text box and you can see the results
+![Alt text](https://github.com/TrafalgarLaw-24/Disaster-Response-Project/blob/master/Webapp_screenshot5.png "Screenshot5")
 
-## Acknowledgments
+## About
 
 * Created this project as part of the Udacity Data Scientist Nanodegree programme. The data was provided by Figure Eight.
