@@ -28,7 +28,7 @@ def clean_data(df):
     for entry in row:
         colnames.append(entry[:-2])
     category_colnames = colnames
-    print('Column names:', category_colnames)
+    print('Col names:', category_colnames)
     categories.columns = category_colnames
     for column in categories:
         categories[column] = categories[column].str[-1:]
@@ -40,7 +40,7 @@ def clean_data(df):
     df = df[df['related'] != 2]
     print('Duplicates remaining:', df.duplicated().sum())
     return df
-    
+
 def save_data(df, database_filename):
     """Saves DataFrame (df) to database path"""
     name = 'sqlite:///' + database_filename
@@ -60,12 +60,12 @@ def main():
 
         print('Cleaning data...')
         df = clean_data(df)
-        
+
         print('Saving data...\n    DATABASE: {}'.format(database_filepath))
         save_data(df, database_filepath)
-        
+
         print('Cleaned data saved to database!')
-    
+
     else:
         print('Please provide the filepaths of the messages and categories '\
               'datasets as the first and second argument respectively, as '\

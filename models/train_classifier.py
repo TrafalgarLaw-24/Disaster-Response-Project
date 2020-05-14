@@ -20,7 +20,7 @@ def load_data(database_filepath):
     """Load the filepath and return the data"""
     name = 'sqlite:///' + database_filepath
     engine = create_engine(name)
-    df = pd.read_sql_table('Disasters', con=engine) # is table always called this? 
+    df = pd.read_sql_table('Disasters', con=engine)
     print(df.head())
     X = df['message']
     y = df[df.columns[4:]]
@@ -33,11 +33,11 @@ def tokenize(text):
     detected_urls = re.findall(url_regex, text)
     for url in detected_urls:
         text = text.replace(url, "urlplaceholder")
-    
+
     # take out all punctuation while tokenizing
     tokenizer = RegexpTokenizer(r'\w+')
     tokens = tokenizer.tokenize(text)
-    
+
     # lemmatize as shown in the lesson
     lemmatizer = WordNetLemmatizer()
     clean_tokens = []
@@ -61,7 +61,7 @@ def build_model():
 
     cv = GridSearchCV(pipeline, parameters)
     return cv
-    
+
 def evaluate_model(model, X_test, y_test, category_names):
     """Print model results
     INPUT
@@ -88,13 +88,13 @@ def main():
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
         X, Y, category_names = load_data(database_filepath)
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25)
-        
+
         print('Building model...')
         model = build_model()
-        
+
         print('Training model...')
         model.fit(X_train, Y_train)
-        
+
         print('Evaluating model...')
         evaluate_model(model, X_test, Y_test, category_names)
 
