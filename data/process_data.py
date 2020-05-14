@@ -3,7 +3,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 def load_data(messages_filepath, categories_filepath):
-    """Load dataframe from filepaths
+    """Load the dataframe from filepaths
     INPUT
     messages_filepath -- str, link to file
     categories_filepath -- str, link to file
@@ -16,7 +16,7 @@ def load_data(messages_filepath, categories_filepath):
     return df
 
 def clean_data(df):
-    """Clean data included in the DataFrame and transform categories part
+    """Clean the data included in the DataFrame and transform categories part
     INPUT
     df -- type pandas DataFrame
     OUTPUT

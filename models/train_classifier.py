@@ -17,7 +17,7 @@ from sklearn.tree import DecisionTreeClassifier
 import pickle
 
 def load_data(database_filepath):
-    """Load the filepath and return the data"""
+    """takes the filepath and loads data from sqlite table and return the data"""
     name = 'sqlite:///' + database_filepath
     engine = create_engine(name)
     df = pd.read_sql_table('Disasters', con=engine)
@@ -28,7 +28,7 @@ def load_data(database_filepath):
     return X, y, category_names
 
 def tokenize(text):
-    """tokenize and transform input text. Return cleaned text"""
+    """tokenize and transform the input text. Return cleaned text"""
     url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     detected_urls = re.findall(url_regex, text)
     for url in detected_urls:
@@ -38,7 +38,7 @@ def tokenize(text):
     tokenizer = RegexpTokenizer(r'\w+')
     tokens = tokenizer.tokenize(text)
 
-    # lemmatize as shown in the lesson
+    # lemmatize each token
     lemmatizer = WordNetLemmatizer()
     clean_tokens = []
     for tok in tokens:
@@ -78,11 +78,11 @@ def evaluate_model(model, X_test, y_test, category_names):
     results = pd.DataFrame(columns=['Category', 'f_score', 'precision', 'recall'])
 
 def save_model(model, model_filepath):
-    """Save model as pickle file"""
+    """Save the model as a pickle file"""
     pickle.dump(model, open(model_filepath, 'wb'))
 
 def main():
-    """Load the data, run the model and save model"""
+    """Load the data, run the model and save the model"""
     if len(sys.argv) == 3:
         database_filepath, model_filepath = sys.argv[1:]
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
