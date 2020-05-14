@@ -1,8 +1,14 @@
 # Disaster Response Pipeline Project
+We're gonna analyze disaster data from Figure Eight to build a model and a web app that classifies and displays disaster messages.
+
+In the data folder, you'll find a datasets containing real messages that were sent during disasters. We will be creating a machine learning pipeline to categorize these events which will help us in sending messages to appropriate disaster relief agency.
+
+This project includes a web app where any appropriate personnel can input a message and get classification results across categories. The web app also displays visualizations of the data in the landing page.
+
 Performing ETL to read the dataset, clean the data, and store it in a database and then using the stored data to build a Machine Learning model with Natural Language Processing to predict classification of 36 categories (multi-output classification).
 
 ## Getting Started
-Clone the repository and install the necessary packages mentioned in the 'requirements.txt' file.
+Clone the repository and install the necessary packages mentioned in the 'requirements.txt' file using pip install.
 
 ## Content
 * Data
@@ -19,7 +25,7 @@ Clone the repository and install the necessary packages mentioned in the 'requir
 1. Run the following commands in the project's root directory to set up your database and model.
 
     1. The first command is to run the ETL pipeline that cleans data and stores in database.
-	2. The second is to run the ML pipeline that trains classifier and saves the result in pickle file.
+		2. The second is to run the ML pipeline that trains classifier and saves the result in pickle file.
 
 ```
 python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
