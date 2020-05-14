@@ -25,7 +25,7 @@ Clone the repository and install the necessary packages mentioned in the 'requir
 1. Run the following commands in the project's root directory to set up your database and model.
 
     1. The first command is to run the ETL pipeline that cleans data and stores in database.
-		2. The second is to run the ML pipeline that trains classifier and saves the result in pickle file.
+	2. The second is to run the ML pipeline that trains classifier and saves the result in pickle file.
 
 ```
 python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db
