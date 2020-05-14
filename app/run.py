@@ -42,10 +42,10 @@ def index():
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
-    cats = df[df.columns[5:]]
-    cats_counts = cats.mean()*cats.shape[0]
-    cats_names = list(cats_counts.index)
-    nlarge_counts = cats_counts.nlargest(5)
+    categories = df[df.columns[5:]]
+    categories_counts = categories.mean()*categories.shape[0]
+    category_names = list(categories_counts.index)
+    nlarge_counts = categories_counts.nlargest(5)
     nlarge_names = list(nlarge_counts.index)
 
     # create visuals
@@ -90,8 +90,8 @@ def index():
         {
             'data': [
                 Bar(
-                    x=cats_names,
-                    y=cats_counts
+                    x=category_names,
+                    y=categories_counts
                 )
             ],
 
